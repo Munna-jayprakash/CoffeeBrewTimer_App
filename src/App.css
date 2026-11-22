@@ -1,0 +1,392 @@
+/* src/App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0e0a08;
+  color: #f4ece6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  background-color: #16100c;
+  border-bottom: 1px solid #2b1f18;
+  position: relative;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: #f4ece6;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.history-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #231913;
+  color: #e6d5c3;
+  text-decoration: none;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #3a2a20;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.history-btn:hover,
+.history-btn.active {
+  background: #d4a373;
+  color: #120c08;
+  border-color: #d4a373;
+}
+
+.badge {
+  background: #120c08;
+  color: #d4a373;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+/* Coffee Beans Background */
+.beans-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.coffee-bean-svg {
+  position: absolute;
+  opacity: 0.35;
+}
+
+/* Home Layout */
+.home-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.hero-text {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.hero-text h1 {
+  font-size: 2.2rem;
+  color: #f8f1eb;
+  margin-bottom: 0.4rem;
+}
+
+.hero-text p {
+  color: #a89587;
+}
+
+/* Preset Cards */
+.presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.preset-card {
+  background: #18110d;
+  border: 1px solid #2e2119;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.preset-card:hover {
+  transform: translateY(-4px);
+  border-color: #d4a373;
+}
+
+.preset-card.selected {
+  border: 2px solid #d4a373;
+  box-shadow: 0 8px 25px rgba(212, 163, 115, 0.15);
+}
+
+.card-img-wrapper {
+  height: 185px;
+  width: 100%;
+  overflow: hidden;
+  background: #0d0907;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.2rem;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.3rem;
+}
+
+.ratio {
+  font-size: 0.85rem;
+  color: #a89587;
+  margin-bottom: 0.9rem;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #d4a373;
+}
+
+.card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Timer Box */
+.timer-placeholder,
+.timer-box {
+  background: #18110d;
+  border: 1px solid #2e2119;
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.timer-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.temp-pill {
+  background: #2b1f18;
+  color: #d4a373;
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.countdown-display {
+  font-size: 4.5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+  color: #f8f1eb;
+  margin: 0.5rem 0 1.2rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: #2b1f18;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #d4a373;
+  transition: width 0.4s linear;
+}
+
+.brew-complete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #81b29a;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: #d4a373;
+  color: #140e0a;
+}
+
+.btn-primary:hover {
+  background: #e0b489;
+}
+
+.btn-secondary {
+  background: #2b1f18;
+  color: #f4ece6;
+}
+
+.btn-secondary:hover {
+  background: #3b2b21;
+}
+
+/* History Page */
+.history-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #d4a373;
+  text-decoration: none;
+}
+
+.btn-danger {
+  background: #3d1c1c;
+  color: #f28b82;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.history-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+.empty-history {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #18110d;
+  border-radius: 16px;
+  border: 1px solid #2e2119;
+  color: #a89587;
+}
+
+.empty-history p {
+  margin-top: 0.8rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #18110d;
+  border: 1px solid #2e2119;
+  padding: 1rem 1.3rem;
+  border-radius: 12px;
+}
+
+.timestamp {
+  font-size: 0.82rem;
+  color: #a89587;
+}
+
+.duration-tag {
+  background: #2b1f18;
+  color: #d4a373;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+/* Temperature Control Bar */
+.temp-control-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #231913;
+  border: 1px solid #3a2a20;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: #cbb8a9;
+  margin-bottom: 0.5rem;
+}
+
+.temp-value {
+  color: #d4a373;
+  min-width: 42px;
+  text-align: center;
+}
+
+.temp-step-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #33241b;
+  color: #f4ece6;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.temp-step-btn:hover:not(:disabled) {
+  background: #d4a373;
+  color: #140e0a;
+}
+
+.temp-step-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
